@@ -1,0 +1,9 @@
+
+xrun -gui \
+     -licqueue \
+     -access +rw \
+     -uvm \
+     -v93 \
+     -timescale 1ns/1ns \
+     -top tb_apb \
+     -f package.mk
