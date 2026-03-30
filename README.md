@@ -282,7 +282,7 @@ APB_UVM_Project
 
 <ul>
 <li>Add functional coverage for APB transactions</li>
-<li>Random wait state insertion (mentioned in one waveform)</li>
+<li>Random wait state insertion (mentioned in waveform.png)</li>
 <li>Error response testing (under process)</li>
 <li>Support back-to-back transfers (Replace the hardware slave (DUT) with a UVM slave model (agent) ) </li>
 </ul>
