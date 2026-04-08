@@ -301,7 +301,50 @@ for verifying the <b>AMBA APB protocol</b>.
 The testbench ensures protocol compliance, correct data transfer,
 and proper synchronization with the APB timing model.
 </p>
+<hr>
 
+<h2>11. Work update: Functional Coverage</h2>
+
+<p>
+Functional coverage is implemented using a <b>UVM subscriber</b>
+to measure the completeness of APB transaction verification.
+</p>
+
+<h3>Coverage Features</h3>
+
+<ul>
+<li>Transaction-based sampling using <code>write()</code> method</li>
+<li>Covergroups defined for key APB signals</li>
+<li>Conditional sampling using <code>iff</code> for valid transactions</li>
+<li>Ensures only WRITE transactions contribute to PWDATA coverage</li>
+</ul>
+
+<h3>Covered Signals</h3>
+
+<ul>
+<li><b>PADDR</b> – Address space coverage</li>
+<li><b>PWDATA</b> – Data pattern coverage</li>
+<li><b>PWRITE</b> – Read/Write operation coverage</li>
+<li><b>PSEL</b> – Slave selection coverage</li>
+</ul>
+
+<h3>Coverage Strategy</h3>
+
+<p>
+Directed random constraints were used to generate a fixed set of
+valid PWDATA values. Coverage bins were aligned with stimulus
+to ensure efficient coverage closure.
+</p>
+
+<h3>Sampling Mechanism</h3>
+
+<pre>
+Monitor → Transaction → Subscriber.write() → sample()
+</pre>
+
+<p>
+Coverage is updated only when a valid APB transaction is observed.
+</p>
 <hr>
 
 <p><b>Author:</b> Ritik Sharma</p>
